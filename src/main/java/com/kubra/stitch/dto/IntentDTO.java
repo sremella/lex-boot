@@ -16,7 +16,7 @@ public class IntentDTO {
     private String checksum;
     private List<UtteranceDTO> sampleUtterances;
     private List<SlotDTO> slots;
-    private FollowUpPromptDTO confirmationPrompt;
+    private PromptDTO confirmationPrompt;
     private FollowUpPromptDTO followUpPrompt;
     private StatementDTO rejectionStatement;
     private StatementDTO conclusionStatement;

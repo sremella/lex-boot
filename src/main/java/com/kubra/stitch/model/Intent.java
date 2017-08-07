@@ -24,7 +24,7 @@ public class Intent implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Slot> slots;
     @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
-    private FollowUpPrompt confirmationPrompt;
+    private Prompt confirmationPrompt;
     @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
     private FollowUpPrompt followUpPrompt;
     @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
@@ -37,7 +37,7 @@ public class Intent implements Serializable {
         this.name = name;
         this.version = version;
     }
-    public Intent(String name, String version, String checksum, List<Utterance> sampleUtterances, List<Slot> slots, FollowUpPrompt confirmationPrompt, FollowUpPrompt followUpPrompt, Statement rejectionStatement, Statement conclusionStatement, FulfillmentActivity fulfillmentActivity) {
+    public Intent(String name, String version, String checksum, List<Utterance> sampleUtterances, List<Slot> slots, Prompt confirmationPrompt, FollowUpPrompt followUpPrompt, Statement rejectionStatement, Statement conclusionStatement, FulfillmentActivity fulfillmentActivity) {
         this.name = name;
         this.version = version;
         this.checksum = checksum;

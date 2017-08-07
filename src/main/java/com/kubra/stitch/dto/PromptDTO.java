@@ -1,6 +1,5 @@
 package com.kubra.stitch.dto;
 
-import com.kubra.stitch.model.BaseModel;
 import lombok.*;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromptDTO extends BaseModel{
+public class PromptDTO {
     private Long id;
     private List<MessageDTO> messages;
     private Integer maxAttempts;

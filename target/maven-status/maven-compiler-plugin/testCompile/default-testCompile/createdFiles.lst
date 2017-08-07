@@ -1,0 +1,5 @@
+com/kubra/stitch/lex/BotModelTrainingIT.class
+com/kubra/stitch/LexBootApplicationTest.class
+com/kubra/stitch/lex/TextMessageServiceTest.class
+com/kubra/stitch/dao/BotDaoTest.class
+com/kubra/stitch/mapper/MapperTest.class

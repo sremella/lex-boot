@@ -33,7 +33,7 @@ public class BotServiceImpl implements BotService {
         System.out.println(botRequest);
         PutBotResult botResult = lexModel.putBot(botRequest);
         System.out.println(botResult);
-        //If success save or else throw custom rest error!
+        //TODO: If success save or else throw custom rest error!
         bot.setStatus(botResult.getStatus());
         bot.setChecksum(botResult.getChecksum());
         bot.setFailureReason(botResult.getFailureReason());
@@ -50,7 +50,7 @@ public class BotServiceImpl implements BotService {
         Bot oldBot = botDao.findOne(id);
         CustomBeanUtils.copyPropertiesIgnoreNull(newBot, oldBot);
         System.out.println(oldBot); 
-        PutBotRequest botRequest = getBotRequest(oldBot);
+        PutBotRequest botRequest = getBotRequest(oldBot);//This should be replaced with Model Mapping
         botRequest.withChecksum(oldBot.getChecksum());//***
         System.out.println(botRequest);
         PutBotResult botResult = lexModel.putBot(botRequest);
@@ -72,7 +72,7 @@ public class BotServiceImpl implements BotService {
         return botDao.findAll();
     }
 
-    private PutBotRequest getBotRequest(Bot bot){
+    private PutBotRequest getBotRequest(Bot bot){//Refactor with Java8
         List<Intent> botIntents = new ArrayList<Intent>();
         for(com.kubra.stitch.model.Intent intent: bot.getIntents()){
             botIntents.add(new Intent().withIntentName(intent.getName()).withIntentVersion(intent.getVersion()));

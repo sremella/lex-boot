@@ -1,7 +1,6 @@
 package com.kubra.stitch.dto;
 
 
-import com.kubra.stitch.model.BaseModel;
 import lombok.*;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class StatementDTO extends BaseModel{
+public class StatementDTO {
     private Long id;
     private List<MessageDTO> messages;
     private String responseCard;

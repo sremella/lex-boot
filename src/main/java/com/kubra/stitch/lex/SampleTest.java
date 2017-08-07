@@ -46,7 +46,7 @@ public class SampleTest {
 
         List<Slot> slots = Arrays.asList(pickupDate, pickupTime);
         PutIntentRequest intentRequest = new PutIntentRequest()
-                .withName("OrderFruits")
+                .withName("Pay")
                 .withSampleUtterances(utterances)
                 .withConclusionStatement(conclusion)
                 //.withConfirmationPrompt(confirmation)
@@ -55,7 +55,7 @@ public class SampleTest {
                 .withSlots(slots);
 
 
-        Intent intent = new Intent().withIntentName("OrderFruits")
+        Intent intent = new Intent().withIntentName("PayBill")
                 .withIntentVersion("$LATEST")
                 ;
         List<Intent> intents = Arrays.asList(intent);
@@ -95,14 +95,12 @@ public class SampleTest {
         testResult=lexRuntime.postText(textRequest);
         System.out.println(testResult);*/
 
-       GetBotRequest getBotRequest = new GetBotRequest().withName("XBot").withVersionOrAlias("$LATEST");
+       GetBotRequest getBotRequest = new GetBotRequest().withName("NotifiTestBot").withVersionOrAlias("$LATEST");
         System.out.println(lexModel.getBot(getBotRequest));
 
-      /* GetIntentRequest getIntentRequest = new GetIntentRequest().withName("OrderFruits")
+      /* GetIntentRequest getIntentRequest = new GetIntentRequest().withName("PayBill")
                 .withVersion("$LATEST");
         System.out.println(lexModel.getIntent(getIntentRequest));*/
-
-
 
     }
 

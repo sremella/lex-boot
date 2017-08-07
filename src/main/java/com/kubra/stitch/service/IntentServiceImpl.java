@@ -76,6 +76,17 @@ public class IntentServiceImpl implements IntentService {
         }
         Statement rejectionStatement = new Statement()
                 .withMessages(rejectionMessages);
+
+        List<Message> confirmationMessages = new ArrayList<Message>();
+        for(com.kubra.stitch.model.Message message: intent.getConfirmationPrompt().getMessages()){
+            confirmationMessages.add(new Message().withContentType(message.getContentType())
+                    .withContent(message.getContent()));
+        }
+        Prompt confirmationPrompt = new Prompt()
+                .withMessages(confirmationMessages)
+                .withMaxAttempts(intent.getConfirmationPrompt().getMaxAttempts());
+        
+        
         List<String> sampleUtterances = new ArrayList<>();
         for(com.kubra.stitch.model.Utterance utterance: intent.getSampleUtterances()){
             sampleUtterances.add(utterance.getUtterance());
@@ -99,6 +110,8 @@ public class IntentServiceImpl implements IntentService {
                     .withName(slot.getName())
                     .withDescription(slot.getDescription())
                     .withSlotType(slot.getSlotType())
+                    .withSlotTypeVersion(slot.getSlotTypeVersion())
+                    .withPriority(slot.getPriority())
                     .withSlotConstraint(slot.getSlotConstraint())
                     .withValueElicitationPrompt(valueElicitPrompt)
                     .withSampleUtterances(samplUtterances));
@@ -108,6 +121,7 @@ public class IntentServiceImpl implements IntentService {
         return new PutIntentRequest()
                 .withName(intent.getName())
                 .withRejectionStatement(rejectionStatement)
+                .withConfirmationPrompt(confirmationPrompt)
                 .withSampleUtterances(sampleUtterances)
                 .withSlots(slots)
                 .withFulfillmentActivity(fulfillmentActivity);

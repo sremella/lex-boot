@@ -1,7 +1,5 @@
 package com.kubra.stitch.model;
 
-import com.amazonaws.services.lexmodelbuilding.model.Prompt;
-import com.amazonaws.services.lexmodelbuilding.model.Statement;
 import lombok.*;
 
 import javax.persistence.Entity;

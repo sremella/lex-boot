@@ -1,6 +1,5 @@
 package com.kubra.stitch.dto;
 
-import com.kubra.stitch.model.BaseModel;
 import lombok.*;
 
 @Data
@@ -8,7 +7,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class UtteranceDTO extends BaseModel{
+public class UtteranceDTO {
     private Long id;
     private String utterance;
     public UtteranceDTO(String utterance){
